@@ -1,0 +1,16 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Total</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orderHistory">
+            <td>{{ order.date }}</td>
+            <td>{{ order.total }}</td>
+            <td>{{ order.status }}</td>
+        </tr>
+    </tbody>
+</table>

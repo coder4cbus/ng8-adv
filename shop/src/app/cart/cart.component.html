@@ -1,5 +1,23 @@
-<span>
-  <img src="assets/cart.png"/>
-  {{ itemCount}} item(s)
-  <!-- 0 items -->
-</span>
+
+  <span (click)="cartModal.open()">
+    <img src="assets/cart.png"/>
+    {{ itemCount}} item(s)
+    <!-- 0 items -->
+  </span>
+
+<cool-modal #cartModal>
+  <div class="title-bar">
+    Your Cart
+    <span (click)="cartModal.close()">
+      <img src="assets/close.svg" >
+    </span>
+  </div>
+
+  <div class="cart-details" *ngFor="let item of getCart()">
+    <p>{{item.product.name}}</p>
+    <p class="qty">{{item.quantity}}</p>
+  </div>
+  <button class="btn btn-lg btn-primary" [routerLink]="['/payment']">
+    Go to Payment
+  </button>
+</cool-modal>

@@ -1,18 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ccExpiry, ccNumber } from '../cc.validator';
 import { HttpClient } from '@angular/common/http';
+import { CartService } from '../cart.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css']
 })
-export class PaymentComponent implements OnInit {
+export class PaymentComponent implements OnInit, OnDestroy {
 
   paymentForm:FormGroup
+  showProgress = false
+  subscription: Subscription 
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private cartSvc:CartService) { }
 
   ngOnInit() {
     this.paymentForm = new FormGroup({
@@ -25,9 +29,17 @@ export class PaymentComponent implements OnInit {
   }
 
   makePayment() {
+    this.showProgress = true
+    this.cartSvc.makePayment(this.paymentForm.value).subscribe (
+      _ => this.showProgress = false,
+      _ => this.showProgress = false
+    )
     console.log(this.paymentForm.value)
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe()
+  }
 }
 
 // Visa: 4111111111111111

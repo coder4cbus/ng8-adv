@@ -1,0 +1,13 @@
+<form [formGroup]="loginForm">
+    <div class="form-signin">
+        <h1>Please Sign In</h1>
+        <div class="alert alert-danger" *ngIf="errorMsg"> {{ errorMsg}} </div>
+        <label>User ID</label>
+        <input type="text" class="form-control" placeholder="First and Last Name - Sam or Daffy" #userId>
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="Password - Anything Works!" #password>
+
+        <button class="btn btn-primary btn-block"
+        (click)="login(userId.value, password.value)">Sign In</button>
+    </div>
+</form>

@@ -22,4 +22,8 @@ export class CartComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe()
   }
 
+  getCart() {
+    return this.cartSvc.userCart
+  }
+
 }

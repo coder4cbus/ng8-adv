@@ -17,6 +17,9 @@ import { PopupMenuComponent } from './popup-menu/popup-menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GridLayoutDirective } from './grid-layout.directive';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CoolToolsLibModule } from 'cool-tools-lib';
+import { LoginComponent } from './login/login.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +34,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductCardComponent,
     PaymentComponent,
     PopupMenuComponent,
-    GridLayoutDirective
+    GridLayoutDirective,
+    LoginComponent,
+    OrderHistoryComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CoolToolsLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]

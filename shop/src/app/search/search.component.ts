@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     fromEvent(this.searchElement.nativeElement, "input")
-    .pipe(debounceTime(1000)).subscribe (_ => this.applySearch (
+    .pipe(debounceTime(1000)).subscribe(_ => this.applySearch(
       this.searchElement.nativeElement.value
     ))
   }
@@ -31,7 +31,8 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe()
-
+    if (this.subscription) {
+      this.subscription.unsubscribe()
+    }
   }
 }
