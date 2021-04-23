@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -14,6 +14,10 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PopupMenuComponent } from './popup-menu/popup-menu.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { GridLayoutDirective } from './grid-layout.directive';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,12 +30,14 @@ import { PopupMenuComponent } from './popup-menu/popup-menu.component';
     CartComponent,
     ProductCardComponent,
     PaymentComponent,
-    PopupMenuComponent
+    PopupMenuComponent,
+    GridLayoutDirective
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,13 @@
+<button (click)="m1.open()">Open Modal</button>
+<button (click)="openProgress()">Open Progress</button>
+
+<cool-modal #m1>
+  <div style="padding: 5px">
+    <p>
+      You have a beautiful modal dialog.
+    </p>
+    <button (click)="m1.close()">Close</button>
+  </div>
+</cool-modal>
+
+<cool-progress image="/assets/loading.svg" *ngIf="showProgress"></cool-progress>

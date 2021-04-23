@@ -12,6 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class CatalogComponent implements OnInit {
   // masterCatalog:Product[] = []
   displayCatalog:Product[] = []
+  productsPerRow: number = 1
 
   constructor(private catalogSvc:CatalogService,
     private homeComponent: HomeComponent) { 
